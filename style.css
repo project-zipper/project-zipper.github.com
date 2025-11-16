@@ -1,0 +1,147 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0e0e0e;
+    color: #e6e6e6;
+}
+
+a {
+    color: #5a85ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #151515;
+    border-bottom: 1px solid #222;
+}
+
+header img {
+    height: 50px;
+}
+
+nav a {
+    margin-left: 20px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(145deg,#1a1a1a,#0d0d0d);
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+.hero img.screenshot {
+    margin-top: 30px;
+    max-width: 90%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 26px;
+    margin: 10px;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.btn-download {
+    background: #007bff;
+}
+
+.btn-download:hover {
+    background: #0064d1;
+}
+
+.btn-fandom {
+    background: #5a3cff;
+}
+
+.btn-fandom:hover {
+    background: #432dcc;
+}
+
+/* Sections */
+.section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.section h2, .section h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.section p, .section ul {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 40px;
+    border-top: 1px solid #1e1e1e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav a {
+        margin: 10px 8px;
+    }
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+}
