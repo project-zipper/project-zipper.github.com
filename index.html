@@ -5,47 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZipperOS – Official Website</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <img src="logo.png" alt="ZipperOS Logo">
-  <nav>
+<header class="navbar">
+  <div class="nav-left">
+    <img src="logo.png" alt="ZipperOS Logo" class="logo">
+    <span class="brand">ZipperOS</span>
+  </div>
+
+  <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="features.html">Features</a>
     <a href="download.html">Download</a>
     <a href="docs.html">Docs</a>
-    <a href="terms.html">Terms & Services</a>
-    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
   </nav>
 </header>
 
-<div class="hero">
-  <h2>Welcome to ZipperOS</h2>
-  <p>The modern, fast, customizable Linux distribution built for creators, developers, and power users. Crafted with passion and designed by Wolfie.</p>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to <span>ZipperOS</span></h1>
+    <p>The fast, customizable, creator-focused Linux distribution.  
+    Designed with passion. Built for everyone.</p>
 
-  <div class="buttons">
-    <a href="https://archive.org/details/zipperos" class="btn btn-download">⬇ Download ZipperOS ISO</a>
-    <a href="https://github.com/project-zipper/project-zipper.github.com/discussions" class="btn btn-fandom">⭐ ZipperOS Fandom</a>
-    <a href="https://discord.gg/S7R4Dday" class="btn btn-discord">💬 ZipperOS Discord</a>
-    <a href="zeta.html" class="btn btn-zeta">💻 About Zeta</a>
-    <a href="https://www.reddit.com/r/ZipperOS_Linux/" class="btn btn-zeta">🗣️ Zipper Reddit</a>
+    <div class="button-row">
+      <a href="https://archive.org/details/zipperos" class="btn primary">⬇ Download ISO</a>
+      <a href="https://github.com/project-zipper/project-zipper.github.com/discussions" class="btn secondary">⭐ Fandom</a>
+      <a href="https://discord.gg/S7R4Dday" class="btn secondary">💬 Discord</a>
+      <a href="zeta.html" class="btn glow">💻 About Zeta</a>
+      <a href="https://www.reddit.com/r/ZipperOS_Linux/" class="btn secondary">🗣️ Reddit</a>
+    </div>
   </div>
 
-  <img src="screenshot.png" alt="ZipperOS Screenshot" class="screenshot">
-</div>
+  <div class="hero-image">
+    <img src="screenshot.png" alt="ZipperOS Screenshot">
+  </div>
+</section>
 
-<div class="section">
+<section class="community">
   <h2>Community & Feedback</h2>
-  <p>ZipperOS evolves based on the needs and requests of its users. Join the community and share your ideas to help shape the OS:</p>
-  <ul>
-    <li>Request new features on the <a href="https://github.com/project-zipper/project-zipper.github.com/discussions">ZipperOS Fandom page</a></li>
-    <li>Suggest improvements or bug fixes</li>
-    <li>Vote on features you want most in upcoming releases</li>
-  </ul>
-</div>
+  <p>ZipperOS grows with its community. Share ideas, vote on features, and help guide the future of the OS.</p>
 
-<footer>Created by Wolfie — ZipperOS © 2025</footer>
+  <ul>
+    <li>Submit feature requests in the <a href="https://github.com/project-zipper/project-zipper.github.com/discussions">Fandom Discussions</a></li>
+    <li>Suggest improvements or bug fixes</li>
+    <li>Vote for features in upcoming releases</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Created by Wolfie — ZipperOS © 2025</p>
+</footer>
+
 </body>
 </html>
