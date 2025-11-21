@@ -5,41 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Download – ZipperOS</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <img src="logo.png" alt="ZipperOS Logo">
-  <nav>
+<!-- ANIMATED BACKGROUND -->
+<div class="grid"></div>
+<div class="particles"></div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-left">
+    <img src="logo.png" alt="ZipperOS Logo" class="logo">
+    <span class="brand">ZipperOS</span>
+  </div>
+
+  <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="features.html">Features</a>
-    <a href="download.html">Download</a>
+    <a href="download.html" class="active">Download</a>
     <a href="docs.html">Docs</a>
-    <a href="terms.html">Terms & Services</a>
-    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
   </nav>
 </header>
 
-<div class="section">
-  <h2>Download ZipperOS Archive.org </h2>
-  <p>Get the latest official ISO release hosted on Archive.org.</p>
-  <a class="btn btn-download" href="https://archive.org/details/zipperos">⬇ Download ISO</a>
-</div>
-  <div class="section">
-  <h2>Download ZipperOS Acorn 65 (November 12 2025) SourceForge</h2>
-  <p>Get the latest official ISO release hosted on SourceForge.</p>
-  <a class="btn btn-download" href="https://sourceforge.net/projects/zipperosacorn/files/zipper-acorn.iso/download">⬇ Download ISO</a>
-</div>
-  </div>
-  <div class="section">
-  <h2>Download ZipperOS Nano 57 (November 18 2025) SourceForge</h2>
-  <p>Get the latest official ISO release hosted on SourceForge.</p>
-  <a class="btn btn-download" href="https://sourceforge.net/projects/zipperos-nano-57/">⬇ Download ISO</a>
-</div>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <h1>Download ZipperOS</h1>
+  <p>Choose your version and start your journey with ZipperOS.</p>
+</section>
 
-  
+<!-- CONTENT -->
+<section class="content-box">
 
-<footer>Created by Wolfie — ZipperOS © 2025</footer>
+  <h2>ZipperOS – Archive.org Release</h2>
+  <p>Get the latest official ISO hosted on Archive.org.</p>
+  <a class="btn primary" href="https://archive.org/details/zipperos">⬇ Download ISO</a>
+
+  <hr>
+
+  <h2>ZipperOS Acorn 65 (November 12, 2025) – SourceForge</h2>
+  <p>The Acorn 65 build is available on SourceForge.</p>
+  <a class="btn primary" href="https://sourceforge.net/projects/zipperosacorn/files/zipper-acorn.iso/download">⬇ Download ISO</a>
+
+  <hr>
+
+  <h2>ZipperOS Nano 2 (December 4, 2025) – SourceForge</h2>
+  <p>The lightweight Nano 2 build is available for download.</p>
+  <a class="btn primary" href="https://sourceforge.net/projects/zipperos-nano-57/">⬇ Download ISO</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Created by Wolfie — ZipperOS © 2025</p>
+</footer>
+
 </body>
 </html>
