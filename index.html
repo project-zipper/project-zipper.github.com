@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZipperOS – Official Website</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 </head>
@@ -21,22 +21,24 @@
   </div>
 
   <nav class="nav-links">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
+    <a href="features.html">Features</a>
+    <a href="download.html">Download</a>
     <a href="docs.html">Docs</a>
     <a href="terms.html">Terms</a>
     <a href="privacy.html">Privacy</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
+<section class="hero" style="overflow: hidden;">
+  <div class="hero-content" style="max-width: 60%;">
     <h1>Welcome to <span>ZipperOS</span></h1>
     <p>The fast, customizable, creator-focused Linux distribution.<br>
        Designed with passion. Engineered for next-level performance.</p>
 
     <div class="button-row">
-      <a href="https://archive.org/details/zipperos" class="btn primary">⬇ Download ISO</a>
+      <a href="https://archive.org/details/zipperos" class="btn btn-download">⬇ Download ISO</a>
       <a href="https://github.com/project-zipper/project-zipper.github.com/discussions" class="btn secondary">⭐ Fandom</a>
       <a href="https://discord.gg/S7R4Dday" class="btn secondary">💬 Discord</a>
       <a href="zeta.html" class="btn glow">💻 About Zeta</a>
@@ -44,11 +46,12 @@
     </div>
   </div>
 
-  <div class="float-image-container">
-  <img src="screenshot.png" alt="ZipperOS Screenshot">
-  <div class="overlay-text">Wolfie</div>
-</div>
-
+  <!-- Floating image on the right -->
+  <div class="float-image-container" style="float: right; max-width: 35%; margin-left: 25px;">
+    <img src="screenshot.png" alt="ZipperOS Screenshot">
+    <div class="overlay-text">Wolfie</div>
+  </div>
+</section>
 
 <section class="community">
   <h2>Community & Feedback</h2>
@@ -64,6 +67,36 @@
 <footer>
   <p>Created by Wolfie — ZipperOS © 2025</p>
 </footer>
+
+<!-- RESPONSIVE STYLES -->
+<style>
+  @media (max-width: 992px) {
+    .hero-content {
+      max-width: 100% !important;
+    }
+    .float-image-container {
+      float: none !important;
+      max-width: 80% !important;
+      margin: 20px auto 0 auto;
+      display: block;
+      text-align: center;
+    }
+    .float-image-container img {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .button-row {
+      display: flex;
+      flex-direction: column;
+    }
+    .button-row a.btn + a.btn {
+      margin-left: 0;
+      margin-top: 12px;
+    }
+  }
+</style>
 
 </body>
 </html>
