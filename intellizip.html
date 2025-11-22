@@ -33,89 +33,38 @@
 <section class="hero" style="overflow: hidden;">
   <div class="hero-content" style="max-width: 60%;">
     <h1>Meet <span>IntelliZip</span></h1>
-    <p>Your intelligent assistant for ZipperOS.<br>
-       Ask questions, explore features, or get lists of Linux distros—all in one place.</p>
-
-    <div id="suggestions" class="button-row">
-      <button class="btn glow" onclick="sendPrompt('What is ZipperOS?')">What is ZipperOS?</button>
-      <button class="btn glow" onclick="sendPrompt('Name 50 new Linux distros that are unpopular.')">50 New Linux Distros</button>
+    <p><strong>IntelliZip</strong> is the intelligent assistant for <strong>ZipperOS</strong>.<br>
+       It’s designed to help you explore features, understand the OS, and learn more about Linux distributions—all in one place.</p>
+    
+    <div class="button-row">
+      <a href="index.html" class="btn glow">⬅ Back to Home</a>
     </div>
   </div>
 
   <div class="float-image-container" style="float: right; max-width: 35%; margin-left: 25px;">
-    <img src="intellizip.png" alt="IntelliZip Logo">
+    <img src="logo.png" alt="ZipperOS Logo">
     <div class="overlay-text">IntelliZip</div>
   </div>
 </section>
 
 <section class="community">
-  <h2>Chat with IntelliZip</h2>
-  <div id="chat" style="display:flex; flex-direction:column; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; max-height: 400px; overflow-y: auto;"></div>
-  <div style="margin-top: 15px; display:flex; gap:10px;">
-    <input id="userInput" type="text" placeholder="Type your question..." style="flex:1; padding: 10px; border-radius: 8px; border: none;">
-    <button class="btn glow" onclick="sendInput()">Send</button>
-  </div>
+  <h2>What IntelliZip Can Do</h2>
+  <ul>
+    <li>Explain what ZipperOS is and how it works</li>
+    <li>Describe features of ZipperOS in detail</li>
+    <li>Provide recommendations for Linux distributions</li>
+    <li>Help new users understand Linux basics</li>
+  </ul>
+
+  <h2>Why Use IntelliZip?</h2>
+  <p>IntelliZip is built to make ZipperOS approachable for everyone. Whether you’re a beginner or a Linux enthusiast, IntelliZip guides you through the OS with clear explanations and helpful suggestions.</p>
 </section>
 
 <footer>
   <p>Created by Wolfie — ZipperOS © 2025</p>
 </footer>
 
-<script>
-const chatDiv = document.getElementById('chat');
-
-// Display a message in the chat
-function addMessage(text, sender) {
-  const msg = document.createElement('div');
-  msg.classList.add(sender);
-  msg.style.padding = '10px 15px';
-  msg.style.borderRadius = '10px';
-  msg.style.marginBottom = '10px';
-  msg.style.maxWidth = '80%';
-  msg.style.wordWrap = 'break-word';
-  msg.textContent = text;
-  if(sender === 'user') {
-    msg.style.background = 'rgba(255,255,255,0.4)';
-    msg.style.color = '#000';
-    msg.style.alignSelf = 'flex-end';
-  } else {
-    msg.style.background = 'rgba(0,0,0,0.3)';
-    msg.style.color = '#fff';
-    msg.style.alignSelf = 'flex-start';
-  }
-  chatDiv.appendChild(msg);
-  chatDiv.scrollTop = chatDiv.scrollHeight;
-}
-
-// Send a prompt to the backend AI
-async function sendPrompt(prompt) {
-  addMessage(prompt, 'user');
-  addMessage('...', 'ai');
-
-  try {
-    const response = await fetch('/ai', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ prompt })
-    });
-
-    const data = await response.json();
-    chatDiv.querySelector('.ai:last-child').textContent = data.output;
-  } catch (err) {
-    chatDiv.querySelector('.ai:last-child').textContent = "Error connecting to IntelliZip.";
-    console.error(err);
-  }
-}
-
-// Send input from the text box
-function sendInput() {
-  const input = document.getElementById('userInput');
-  if(input.value.trim() === '') return;
-  sendPrompt(input.value.trim());
-  input.value = '';
-}
-</script>
-
+<!-- RESPONSIVE STYLES -->
 <style>
   @media (max-width: 992px) {
     .hero-content { max-width: 100% !important; }
@@ -129,8 +78,7 @@ function sendInput() {
     .float-image-container img { margin: 0 auto; }
   }
   @media (max-width: 600px) {
-    .button-row, #suggestions { display: flex; flex-direction: column; gap:10px; }
-    .button-row a.btn, #suggestions button { margin-left: 0; margin-top: 12px; }
+    .button-row { display: flex; flex-direction: column; gap: 12px; }
   }
 </style>
 
