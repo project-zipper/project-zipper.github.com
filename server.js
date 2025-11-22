@@ -1,9 +1,9 @@
 import express from 'express';
-import fetch from 'node-fetch'; // npm install node-fetch
+import fetch from 'node-fetch';
 import cors from 'cors';
 
 const app = express();
-app.use(cors()); // allow frontend to call
+app.use(cors());
 app.use(express.json());
 
 const API_KEY = "AIzaSyAB2ybNFXZbMccHrd23rjLgPi5n0RwBwek";
@@ -32,7 +32,6 @@ app.post('/ai', async (req, res) => {
       return res.status(500).json({ error: data.error.message });
     }
 
-    // Send back only the text output to frontend
     const output = data?.candidates?.[0]?.output || "Sorry, I couldn't generate a response.";
     res.json({ output });
   } catch (err) {
@@ -41,7 +40,6 @@ app.post('/ai', async (req, res) => {
   }
 });
 
-app.use(express.static('./')); // serve HTML and CSS files
+app.use(express.static('./')); // serve HTML & CSS
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
