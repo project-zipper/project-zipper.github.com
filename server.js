@@ -1,13 +1,11 @@
-// server.js
 import express from 'express';
 import fetch from 'node-fetch'; // npm install node-fetch
 import cors from 'cors';
 
 const app = express();
-app.use(cors());
+app.use(cors()); // allow frontend to call
 app.use(express.json());
 
-// Your Google AI API key (keep this secret!)
 const API_KEY = "AIzaSyAB2ybNFXZbMccHrd23rjLgPi5n0RwBwek";
 
 app.post('/ai', async (req, res) => {
@@ -29,15 +27,21 @@ app.post('/ai', async (req, res) => {
     );
 
     const data = await response.json();
-    res.json(data); // send full API response to frontend
+
+    if (data.error) {
+      return res.status(500).json({ error: data.error.message });
+    }
+
+    // Send back only the text output to frontend
+    const output = data?.candidates?.[0]?.output || "Sorry, I couldn't generate a response.";
+    res.json({ output });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to fetch from Google AI API.' });
+    res.status(500).json({ error: "Failed to fetch from Google AI API." });
   }
 });
 
-// Serve your HTML and static files (optional)
-app.use(express.static('./'));
+app.use(express.static('./')); // serve HTML and CSS files
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
