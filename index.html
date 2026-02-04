@@ -1,39 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZipperOS – Official Website</title>
-  <link rel="stylesheet" href="style.css?v=2">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>ZipperTV – Premium Smart TVs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Clean, premium font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      color: #ffffff;
+      background: linear-gradient(135deg, #d100ff, #5a00ff);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background watermark */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("logo.png") center / 50% no-repeat;
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: auto;
+      padding: 50px 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    header h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+
+    header span {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 120px;
+    }
+
+    .hero h2 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 8px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .section {
+      margin-bottom: 110px;
+    }
+
+    .section h3 {
+      font-size: 34px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section p {
+      max-width: 820px;
+      margin: auto;
+      text-align: center;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .spec {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    .spec h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .spec p {
+      font-size: 15px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.65;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>ZipperTV</h1>
+      <span>Concept Smart Television</span>
+    </header>
 
-<!-- ANIMATED BACKGROUND GRID -->
-<div class="grid"></div>
-<div class="particles"></div>
+    <section class="hero">
+      <h2>Designed for What’s Next</h2>
+      <p>
+        ZipperTV is a premium smart television concept currently in development.
+        Designed in sizes from <strong>50″ to 75″</strong>, ZipperTV focuses on
+        display quality, performance, and long-term software flexibility for
+        modern living rooms.
+      </p>
+      <div class="status">In Development • Not Yet Manufactured</div>
+    </section>
 
-<header class="navbar">
-  <div class="nav-left">
-    <img src="logo.png" alt="ZipperOS Logo" class="logo">
-    <span class="brand">ZipperOS</span>
+    <section class="section">
+      <h3>Large, Immersive Displays</h3>
+      <p>
+        ZipperTV is planned to feature large-format displays engineered for
+        cinematic viewing, smooth motion, and vibrant color — built for movies,
+        sports, and next-generation gaming.
+      </p>
+    </section>
+
+    <section class="section">
+      <h3>Smart Software Foundation</h3>
+      <p>
+        The ZipperTV platform is planned to run software based on Ubuntu Linux,
+        offering stability, performance, and flexibility. A full app store and
+        Chrome browser support are intended to be available out of the box.
+      </p>
+
+      <div class="specs">
+        <div class="spec">
+          <h4>Ubuntu-Based Platform</h4>
+          <p>
+            A Linux foundation designed for reliability and long-term updates.
+          </p>
+        </div>
+
+        <div class="spec">
+          <h4>Built-In App Store</h4>
+          <p>
+            Planned support for streaming apps, games, and TV-optimized software.
+          </p>
+        </div>
+
+        <div class="spec">
+          <h4>Chrome Browser</h4>
+          <p>
+            Intended to ship with Chrome preinstalled for fast, familiar web
+            access on a big screen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 ZipperTV. Concept product — specifications subject to change.
+    </footer>
   </div>
-
-  <nav class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="docs.html">Docs</a>
-    <a href="terms.html">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="intellizip.html">IntelliZip</a>
-  </nav>
-</header>
-
-<section class="hero" style="overflow: hidden;">
-  <div class="hero-content" style="max-width: 60%;">
-    <h1>Welcome to <span>ZipperOS</span></h1>
-    <p>The fast, customizable, creator-focused Linux distribution.<br>
+</body>
+</html>
        Designed with passion. Engineered for next-level performance.</p>
 
     <div class="button-row">
