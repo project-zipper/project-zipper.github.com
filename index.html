@@ -1,210 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ZipperTV – Premium Smart TVs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>ZipperOS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+            color: white;
+        }
 
-  <!-- Clean, premium font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        header {
+            text-align: center;
+            padding: 60px 20px 30px 20px;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-    }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
 
-    body {
-      color: #ffffff;
-      background: linear-gradient(135deg, #d100ff, #5a00ff);
-      position: relative;
-      overflow-x: hidden;
-    }
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.8;
+        }
 
-    /* Background watermark */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("logo.png") center / 50% no-repeat;
-      opacity: 0.3;
-      z-index: 0;
-      pointer-events: none;
-    }
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+        }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1280px;
-      margin: auto;
-      padding: 50px 24px;
-    }
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background: #00a8ff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 80px;
-    }
+        .download-btn:hover {
+            background: #0097e6;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00a8ff;
+        }
 
-    header h1 {
-      font-size: 26px;
-      font-weight: 600;
-      letter-spacing: 0.4px;
-    }
+        .content {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    header span {
-      font-size: 14px;
-      opacity: 0.8;
-    }
+        .section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 120px;
-    }
+        h2 {
+            margin-top: 0;
+        }
 
-    .hero h2 {
-      font-size: clamp(42px, 6vw, 72px);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
+        ul {
+            line-height: 1.8;
+        }
 
-    .hero p {
-      font-size: 18px;
-      max-width: 900px;
-      margin: auto;
-      opacity: 0.9;
-      line-height: 1.7;
-    }
-
-    .status {
-      display: inline-block;
-      margin-top: 26px;
-      padding: 8px 20px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.15);
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .section {
-      margin-bottom: 110px;
-    }
-
-    .section h3 {
-      font-size: 34px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .section p {
-      max-width: 820px;
-      margin: auto;
-      text-align: center;
-      opacity: 0.9;
-      line-height: 1.7;
-    }
-
-    .specs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 60px;
-    }
-
-    .spec {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(14px);
-      border-radius: 18px;
-      padding: 32px;
-    }
-
-    .spec h4 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-
-    .spec p {
-      font-size: 15px;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      opacity: 0.65;
-      font-size: 14px;
-      margin-bottom: 40px;
-    }
-  </style>
+        footer {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.7;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>ZipperTV</h1>
-      <span>Concept Smart Television</span>
-    </header>
 
-    <section class="hero">
-      <h2>Designed for What’s Next</h2>
-      <p>
-        ZipperTV is a premium smart television concept currently in development.
-        Designed in sizes from <strong>50″ to 75″</strong>, ZipperTV focuses on
-        display quality, performance, and long-term software flexibility for
-        modern living rooms.
-      </p>
-      <div class="status">In Development • Not Yet Manufactured</div>
-    </section>
+<header>
+    <h1>ZipperOS</h1>
+    <div class="subtitle">A modern Linux distribution built for speed, simplicity, and reliability.</div>
+</header>
 
-    <section class="section">
-      <h3>Large, Immersive Displays</h3>
-      <p>
-        ZipperTV is planned to feature large-format displays engineered for
-        cinematic viewing, smooth motion, and vibrant color — built for movies,
-        sports, and next-generation gaming.
-      </p>
-    </section>
+<div class="download-section">
+    <a class="download-btn"
+       href="https://sourceforge.net/projects/zipperosacorn/files/zipper-acorn.iso/download"
+       target="_blank">
+       DOWNLOAD ZipperOS Acorn 65
+    </a>
+</div>
 
-    <section class="section">
-      <h3>Smart Software Foundation</h3>
-      <p>
-        The ZipperTV platform is planned to run software based on Ubuntu Linux,
-        offering stability, performance, and flexibility. A full app store and
-        Chrome browser support are intended to be available out of the box.
-      </p>
+<div class="content">
 
-      <div class="specs">
-        <div class="spec">
-          <h4>Ubuntu-Based Platform</h4>
-          <p>
-            A Linux foundation designed for reliability and long-term updates.
-          </p>
-        </div>
+    <div class="section">
+        <h2>About ZipperOS</h2>
+        <p>
+            ZipperOS is a lightweight and user-friendly operating system based on Linux Mint.
+            It combines the stability and security of Linux with a streamlined interface designed
+            for both beginners and advanced users.
+        </p>
+    </div>
 
-        <div class="spec">
-          <h4>Built-In App Store</h4>
-          <p>
-            Planned support for streaming apps, games, and TV-optimized software.
-          </p>
-        </div>
+    <div class="section">
+        <h2>Based on Linux Mint</h2>
+        <p>
+            Built on the powerful foundation of Linux Mint, ZipperOS benefits from:
+        </p>
+        <ul>
+            <li>Strong hardware compatibility</li>
+            <li>Long-term support updates</li>
+            <li>Access to thousands of Linux applications</li>
+            <li>Reliable performance and security</li>
+        </ul>
+        <p>
+            By building on Linux Mint, ZipperOS ensures a stable core while offering its own custom
+            look, optimizations, and enhancements.
+        </p>
+    </div>
 
-        <div class="spec">
-          <h4>Chrome Browser</h4>
-          <p>
-            Intended to ship with Chrome preinstalled for fast, familiar web
-            access on a big screen.
-          </p>
-        </div>
-      </div>
-    </section>
+    <div class="section">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Fast and responsive desktop experience</li>
+            <li>Pre-installed essential software</li>
+            <li>Custom theme and branding</li>
+            <li>Optimized for performance</li>
+            <li>Easy installation process</li>
+        </ul>
+    </div>
 
-    <footer>
-      © 2026 ZipperTV. Concept product — specifications subject to change.
-    </footer>
-  </div>
+</div>
+
+<footer>
+    © 2026 ZipperOS Project
+</footer>
+
 </body>
 </html>
