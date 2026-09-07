@@ -2,146 +2,359 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ZipperOS</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #2c2c54);
-            color: white;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            text-align: center;
-            padding: 60px 20px 30px 20px;
-        }
+    <title>PlaceholderOS</title>
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 20px;
-            opacity: 0.8;
-        }
-
-        .download-section {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 20px;
-            color: white;
-            background: #00a8ff;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background: #0097e6;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #00a8ff;
-        }
-
-        .content {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .section {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        ul {
-            line-height: 1.8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            opacity: 0.7;
-            margin-top: 40px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>ZipperOS</h1>
-    <div class="subtitle">A modern Linux distribution built for speed, simplicity, and reliability.</div>
-</header>
+    <!-- Background effects -->
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+    <div class="background-grid"></div>
 
-<div class="download-section">
-    <a class="download-btn"
-       href="https://sourceforge.net/projects/zipperosacorn/files/zipper-acorn.iso/download"
-       target="_blank">
-       DOWNLOAD ZipperOS Acorn 65
-    </a>
-      <a class="download-btn"
-       href="https://sourceforge.net/projects/zipperosacorn/files/zambrowser/ZamBrowser%201.0.0.msi/download"
-       target="_blank">
-       DOWNLOAD ZAM BROWSER 1.0.0
-    </a>
-</div>
+    <!-- HERO -->
+    <header class="hero">
 
-<div class="content">
+        <div class="hero-badge">
+            PLACEHOLDER • LINUX • PROJECT
+        </div>
 
-    <div class="section">
-        <h2>About ZipperOS</h2>
-        <p>
-            ZipperOS is a lightweight and user-friendly operating system based on Linux Mint.
-            It combines the stability and security of Linux with a streamlined interface designed
-            for both beginners and advanced users.
+        <h1>
+            Placeholder<span>OS</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Integer posuere erat a ante.
         </p>
-    </div>
 
-    <div class="section">
-        <h2>Based on Linux Mint</h2>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">
+                PLACEHOLDER DOWNLOAD
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                LEARN MORE
+            </a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span></span>
+            SCROLL TO EXPLORE
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- INTRO -->
+        <section class="intro section-container" id="about">
+
+            <div class="intro-card glass-card">
+
+                <!-- LOGO ABOVE FIRST TEXT -->
+                <img
+                    src="logo.png"
+                    alt="Placeholder Logo"
+                    class="main-logo"
+                >
+
+                <div class="section-label">
+                    01 / PLACEHOLDER
+                </div>
+
+                <h2>
+                    Lorem Ipsum<br>
+                    <span>Dolor Sit Amet.</span>
+                </h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                </p>
+
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- STICKY SCREENSHOT SHOWCASE -->
+        <section class="showcase">
+
+            <div class="showcase-sticky">
+
+                <div class="showcase-text">
+
+                    <div class="section-label">
+                        02 / EXPERIENCE
+                    </div>
+
+                    <h2>
+                        Built for a<br>
+                        <span>Better Desktop.</span>
+                    </h2>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </p>
+
+                </div>
+
+                <div class="screenshot-wrapper">
+
+                    <div class="screenshot-glow"></div>
+
+                    <img
+                        src="screenshot.png"
+                        alt="Placeholder Screenshot"
+                        class="os-screenshot"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+        <section class="section-container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    03 / FEATURES
+                </div>
+
+                <h2>
+                    Everything you<br>
+                    <span>need.</span>
+                </h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur blandit tempus porttitor.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <article class="feature-card glass-card">
+                    <div class="feature-number">01</div>
+                    <div class="feature-icon">✦</div>
+
+                    <h3>
+                        Placeholder Feature
+                    </h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec ullamcorper nulla non metus auctor fringilla.
+                    </p>
+                </article>
+
+
+                <article class="feature-card glass-card">
+                    <div class="feature-number">02</div>
+                    <div class="feature-icon">◈</div>
+
+                    <h3>
+                        Placeholder Feature
+                    </h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec ullamcorper nulla non metus auctor fringilla.
+                    </p>
+                </article>
+
+
+                <article class="feature-card glass-card">
+                    <div class="feature-number">03</div>
+                    <div class="feature-icon">⌁</div>
+
+                    <h3>
+                        Placeholder Feature
+                    </h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec ullamcorper nulla non metus auctor fringilla.
+                    </p>
+                </article>
+
+
+                <article class="feature-card glass-card">
+                    <div class="feature-number">04</div>
+                    <div class="feature-icon">◆</div>
+
+                    <h3>
+                        Placeholder Feature
+                    </h3>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec ullamcorper nulla non metus auctor fringilla.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOWNLOAD -->
+        <section class="download-section section-container">
+
+            <div class="download-card">
+
+                <div class="section-label">
+                    04 / GET STARTED
+                </div>
+
+                <h2>
+                    Ready for<br>
+                    <span>something new?</span>
+                </h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer posuere erat a ante.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#" class="btn btn-primary">
+                        PLACEHOLDER DOWNLOAD
+                    </a>
+
+                    <a href="#" class="btn btn-secondary">
+                        PLACEHOLDER LINK
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            Placeholder<span>OS</span>
+        </div>
+
         <p>
-            Built on the powerful foundation of Linux Mint, ZipperOS benefits from:
+            © 2026 PLACEHOLDER PROJECT
         </p>
-        <ul>
-            <li>Strong hardware compatibility</li>
-            <li>Long-term support updates</li>
-            <li>Access to thousands of Linux applications</li>
-            <li>Reliable performance and security</li>
-        </ul>
-        <p>
-            By building on Linux Mint, ZipperOS ensures a stable core while offering its own custom
-            look, optimizations, and enhancements.
-        </p>
-    </div>
 
-    <div class="section">
-        <h2>Key Features</h2>
-        <ul>
-            <li>Fast and responsive desktop experience</li>
-            <li>Pre-installed essential software</li>
-            <li>Custom theme and branding</li>
-            <li>Optimized for performance</li>
-            <li>Easy installation process</li>
-        </ul>
-    </div>
+        <div class="footer-links">
+            <a href="#">PLACEHOLDER</a>
+            <a href="#">PLACEHOLDER</a>
+            <a href="#">PLACEHOLDER</a>
+        </div>
 
-</div>
+    </footer>
 
-<footer>
-    © 2026 ZipperOS Project
-</footer>
+
+    <!-- Screenshot scroll animation -->
+    <script>
+
+        const showcase = document.querySelector(".showcase");
+        const screenshot = document.querySelector(".os-screenshot");
+        const screenshotWrapper =
+            document.querySelector(".screenshot-wrapper");
+
+        function updateScreenshot() {
+
+            const rect = showcase.getBoundingClientRect();
+
+            /*
+             * Progress through the showcase section.
+             * The section is approximately 3 viewport heights,
+             * allowing the screenshot to remain visible while scrolling.
+             */
+
+            const scrollDistance =
+                showcase.offsetHeight - window.innerHeight;
+
+            let progress = -rect.top / scrollDistance;
+
+            progress = Math.max(0, Math.min(1, progress));
+
+
+            /*
+             * Fade/slide in during the first part
+             */
+            let entrance = Math.min(progress / 0.22, 1);
+
+            screenshotWrapper.style.opacity = entrance;
+
+            screenshotWrapper.style.transform =
+                `translateY(${50 - (entrance * 50)}px) scale(${0.92 + entrance * 0.08})`;
+
+
+            /*
+             * Subtle movement while scrolling
+             */
+            const movement =
+                Math.sin(progress * Math.PI) * 20;
+
+            screenshot.style.transform =
+                `translateY(${movement}px)`;
+
+
+            /*
+             * Slightly dim the image near the beginning/end.
+             */
+            let visibility = 1;
+
+            if (progress < 0.08) {
+                visibility = progress / 0.08;
+            }
+
+            if (progress > 0.94) {
+                visibility = (1 - progress) / 0.06;
+            }
+
+            screenshotWrapper.style.opacity =
+                Math.max(0, Math.min(1, visibility * entrance));
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateScreenshot,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "resize",
+            updateScreenshot
+        );
+
+        updateScreenshot();
+
+    </script>
 
 </body>
 </html>
