@@ -1292,5 +1292,134 @@ footer {
 
 }
 
+/* ================================
+   TERMS PAGE
+================================ */
+
+.terms-page {
+    width: min(1000px, calc(100% - 30px));
+
+    margin: 0 auto;
+
+    padding:
+        100px 0
+        120px;
+
+    text-align: center;
+}
+
+.terms-page .main-logo {
+    margin:
+        35px auto
+        30px;
+}
+
+.terms-page h1 {
+    margin: 0;
+
+    font-size:
+        clamp(48px, 8vw, 85px);
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+    font-weight: 800;
+}
+
+.terms-container {
+    margin-top: 70px;
+
+    padding:
+        60px;
+
+    border-radius: 26px;
+
+    text-align: left;
+}
+
+.terms-section {
+    padding:
+        0 0 55px;
+
+    margin-bottom: 55px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+.terms-section.last-section {
+    border-bottom: none;
+
+    margin-bottom: 0;
+
+    padding-bottom: 0;
+}
+
+.terms-section h2 {
+    margin:
+        0 0 20px;
+
+    font-size: 28px;
+
+    letter-spacing: -1px;
+}
+
+.terms-section p {
+    margin:
+        0 0 18px;
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+.terms-section p:last-child {
+    margin-bottom: 0;
+}
+
+.terms-section .section-label {
+    margin-bottom: 15px;
+
+    font-size: 10px;
+}
+
+.terms-page .back-button {
+    margin-top: 35px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .terms-page {
+        padding-top: 70px;
+    }
+
+    .terms-container {
+        padding: 35px 25px;
+    }
+
+    .terms-page h1 {
+        letter-spacing: -2px;
+    }
+
+    .terms-section {
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+    }
+
+    .terms-section h2 {
+        font-size: 24px;
+    }
+
+    .terms-section p {
+        font-size: 14px;
+    }
 
 }
+
