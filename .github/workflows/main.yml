@@ -1,4 +1,4 @@
-name: Get v86
+name: Download v86 Web Version
 
 on:
   workflow_dispatch:
@@ -7,56 +7,43 @@ permissions:
   contents: write
 
 jobs:
-  get-v86:
+  download-v86:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout ZipperOS
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Download official v86 web files
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            git \
-            build-essential \
-            nasm \
-            python3 \
-            python3-pip \
-            nodejs \
-            npm \
-            rustc \
-            cargo
+          set -e
 
-      - name: Clone v86
-        run: |
-          git clone --depth 1 https://github.com/copy/v86.git /tmp/v86
-          cd /tmp/v86
-
-      - name: Install v86 dependencies
-        working-directory: /tmp/v86
-        run: |
-          npm install
-
-      - name: Build v86
-        working-directory: /tmp/v86
-        run: |
-          make build/libv86.js
-          make build/v86.wasm
-
-      - name: Create ZipperOS v86 folder
-        run: |
           mkdir -p v86/bios
 
-      - name: Copy v86
-        run: |
-          cp /tmp/v86/build/libv86.js v86/libv86.js
-          cp /tmp/v86/build/v86.wasm v86/v86.wasm
+          # Get the latest release tag
+          TAG=$(curl -fsSL https://api.github.com/repos/copy/v86/releases/latest \
+            | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'])")
 
-      - name: Copy BIOS
-        run: |
-          cp /tmp/v86/bios/seabios.bin v86/bios/seabios.bin
-          cp /tmp/v86/bios/vgabios.bin v86/bios/vgabios.bin
+          echo "v86 release: $TAG"
+
+          # Download the prebuilt JavaScript
+          curl -fL \
+            "https://github.com/copy/v86/releases/download/$TAG/libv86.js" \
+            -o v86/libv86.js
+
+          # Download the prebuilt WASM
+          curl -fL \
+            "https://github.com/copy/v86/releases/download/$TAG/v86.wasm" \
+            -o v86/v86.wasm
+
+          # Download BIOS files directly from v86
+          curl -fL \
+            "https://raw.githubusercontent.com/copy/v86/master/bios/seabios.bin" \
+            -o v86/bios/seabios.bin
+
+          curl -fL \
+            "https://raw.githubusercontent.com/copy/v86/master/bios/vgabios.bin" \
+            -o v86/bios/vgabios.bin
 
       - name: Verify
         run: |
@@ -71,9 +58,9 @@ jobs:
           test -s v86/bios/seabios.bin
           test -s v86/bios/vgabios.bin
 
-          echo "v86 installed successfully!"
+          echo "SUCCESS: v86 web version downloaded!"
 
-      - name: Commit to repository
+      - name: Commit files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -81,8 +68,8 @@ jobs:
           git add v86/
 
           if git diff --cached --quiet; then
-            echo "Nothing to commit."
+            echo "v86 is already installed."
           else
-            git commit -m "Add v86 emulator"
+            git commit -m "Add v86 web emulator"
             git push
           fi
