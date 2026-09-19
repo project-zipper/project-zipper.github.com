@@ -1,4 +1,4 @@
-name: Download v86 Web Version
+name: Build ZipperOS Beta v86
 
 on:
   workflow_dispatch:
@@ -7,60 +7,132 @@ permissions:
   contents: write
 
 jobs:
-  download-v86:
+  build-v86:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout ZipperOS
         uses: actions/checkout@v4
 
-      - name: Download official v86 web files
+      - name: Install tools
         run: |
-          set -e
+          sudo apt-get update
+          sudo apt-get install -y \
+            git \
+            build-essential \
+            nasm \
+            python3 \
+            nodejs \
+            npm \
+            curl \
+            wget
 
+      - name: Create directories
+        run: |
+          mkdir -p v86
           mkdir -p v86/bios
+          mkdir -p v86/build
+          mkdir -p v86/images
 
-          # Get the latest release tag
-          TAG=$(curl -fsSL https://api.github.com/repos/copy/v86/releases/latest \
-            | python3 -c "import sys,json; print(json.load(sys.stdin)['tag_name'])")
-
-          echo "v86 release: $TAG"
-
-          # Download the prebuilt JavaScript
-          curl -fL \
-            "https://github.com/copy/v86/releases/download/$TAG/libv86.js" \
-            -o v86/libv86.js
-
-          # Download the prebuilt WASM
-          curl -fL \
-            "https://github.com/copy/v86/releases/download/$TAG/v86.wasm" \
-            -o v86/v86.wasm
-
-          # Download BIOS files directly from v86
-          curl -fL \
-            "https://raw.githubusercontent.com/copy/v86/master/bios/seabios.bin" \
-            -o v86/bios/seabios.bin
-
-          curl -fL \
-            "https://raw.githubusercontent.com/copy/v86/master/bios/vgabios.bin" \
-            -o v86/bios/vgabios.bin
-
-      - name: Verify
+      - name: Download v86 source
         run: |
-          echo "===== v86 ====="
-          ls -lh v86/
+          git clone --depth 1 https://github.com/copy/v86.git /tmp/v86
 
-          echo "===== BIOS ====="
-          ls -lh v86/bios/
+      - name: Install v86 npm packages
+        working-directory: /tmp/v86
+        run: |
+          npm install
+
+      - name: Build browser version
+        working-directory: /tmp/v86
+        run: |
+          npm run build
+
+      - name: Find generated v86 files
+        run: |
+          echo "Searching for generated browser files..."
+
+          find /tmp/v86 \
+            -type f \
+            \( -name "libv86.js" \
+            -o -name "v86.wasm" \
+            -o -name "seabios.bin" \
+            -o -name "vgabios.bin" \) \
+            -print
+
+      - name: Copy generated browser files
+        run: |
+          LIB=$(find /tmp/v86 -type f -name "libv86.js" | head -n 1)
+          WASM=$(find /tmp/v86 -type f -name "v86.wasm" | head -n 1)
+          BIOS=$(find /tmp/v86 -type f -name "seabios.bin" | head -n 1)
+          VGA=$(find /tmp/v86 -type f -name "vgabios.bin" | head -n 1)
+
+          if [ -z "$LIB" ]; then
+            echo "ERROR: libv86.js was not generated."
+            exit 1
+          fi
+
+          if [ -z "$WASM" ]; then
+            echo "ERROR: v86.wasm was not generated."
+            exit 1
+          fi
+
+          if [ -z "$BIOS" ]; then
+            echo "ERROR: seabios.bin was not found."
+            exit 1
+          fi
+
+          if [ -z "$VGA" ]; then
+            echo "ERROR: vgabios.bin was not found."
+            exit 1
+          fi
+
+          cp "$LIB" v86/libv86.js
+          cp "$WASM" v86/v86.wasm
+          cp "$BIOS" v86/bios/seabios.bin
+          cp "$VGA" v86/bios/vgabios.bin
+
+      - name: Copy v86 web example files
+        run: |
+          if [ -d "/tmp/v86/examples" ]; then
+            cp -r /tmp/v86/examples/* v86/build/ || true
+          fi
+
+      - name: Create v86 configuration
+        run: |
+          cat > v86/config.json <<'EOF'
+          {
+            "wasm": "v86.wasm",
+            "javascript": "libv86.js",
+            "bios": "bios/seabios.bin",
+            "vga_bios": "bios/vgabios.bin",
+            "disk": "../zipperos-banana.img",
+            "kernel": "../kernel.bin"
+          }
+          EOF
+
+      - name: Verify everything
+        run: |
+          echo ""
+          echo "================================"
+          echo " ZipperOS Beta v86 Files"
+          echo "================================"
+          echo ""
+
+          find v86 -type f -printf "%p - %s bytes\n"
+
+          echo ""
 
           test -s v86/libv86.js
           test -s v86/v86.wasm
           test -s v86/bios/seabios.bin
           test -s v86/bios/vgabios.bin
 
-          echo "SUCCESS: v86 web version downloaded!"
+          echo "================================"
+          echo " v86 files OK"
+          echo "================================"
 
-      - name: Commit files
+      - name: Commit everything
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -68,8 +140,8 @@ jobs:
           git add v86/
 
           if git diff --cached --quiet; then
-            echo "v86 is already installed."
+            echo "Nothing changed."
           else
-            git commit -m "Add v86 web emulator"
+            git commit -m "Add complete v86 web emulator"
             git push
           fi
