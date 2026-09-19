@@ -1,66 +1,52 @@
 name: Get v86
 
 on:
-workflow_dispatch:
+  workflow_dispatch:
 
 permissions:
-contents: write
+  contents: write
 
 jobs:
-get-v86:
-runs-on: ubuntu-latest
+  download-v86:
+    runs-on: ubuntu-latest
 
-```
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  - name: Download v86
-    run: |
-      mkdir -p v86/bios
+      - name: Download v86
+        run: |
+          set -e
 
-      curl -L \
-        https://github.com/copy/v86/releases/latest/download/libv86.js \
-        -o v86/libv86.js
+          mkdir -p v86/bios
 
-      curl -L \
-        https://github.com/copy/v86/releases/latest/download/v86.wasm \
-        -o v86/v86.wasm
+          git clone --depth 1 https://github.com/copy/v86.git /tmp/v86
 
-  - name: Download BIOS
-    run: |
-      curl -L \
-        https://raw.githubusercontent.com/copy/v86/master/bios/seabios.bin \
-        -o v86/bios/seabios.bin
+          cp /tmp/v86/build/libv86.js v86/libv86.js
+          cp /tmp/v86/build/v86.wasm v86/v86.wasm
+          cp /tmp/v86/bios/seabios.bin v86/bios/seabios.bin
+          cp /tmp/v86/bios/vgabios.bin v86/bios/vgabios.bin
 
-      curl -L \
-        https://raw.githubusercontent.com/copy/v86/master/bios/vgabios.bin \
-        -o v86/bios/vgabios.bin
+      - name: Verify v86
+        run: |
+          test -f v86/libv86.js
+          test -f v86/v86.wasm
+          test -f v86/bios/seabios.bin
+          test -f v86/bios/vgabios.bin
 
-  - name: Verify files
-    run: |
-      echo "v86 files:"
-      ls -lh v86/
-      echo ""
-      echo "BIOS files:"
-      ls -lh v86/bios/
+          echo "v86 successfully installed:"
+          find v86 -type f -printf '%p %s bytes\n'
 
-      test -s v86/libv86.js
-      test -s v86/v86.wasm
-      test -s v86/bios/seabios.bin
-      test -s v86/bios/vgabios.bin
+      - name: Commit v86
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-  - name: Commit v86
-    run: |
-      git config user.name "github-actions[bot]"
-      git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v86
 
-      git add v86/
-
-      if git diff --cached --quiet; then
-        echo "v86 is already up to date."
-      else
-        git commit -m "Add v86 emulator"
-        git push
-      fi
-```
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Add v86 emulator"
+            git push
+          fi
